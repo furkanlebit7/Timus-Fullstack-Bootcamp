@@ -1,8 +1,0 @@
-js tarihi ve ecmascript kendin çalış.
-
-
-var let const sorulacak
-
-https://www.javascripttutorial.net/javascript-array-methods/
-
-https://leetcode.com/problems/fizz-buzz/
