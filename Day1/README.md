@@ -93,7 +93,7 @@ console.log(colors.length); // 3
 
 #### &#8594; push()
 
-```
+```javascript
 let numbers = [10, 20, 30];
 
 const length = numbers.push(40);
@@ -104,7 +104,7 @@ console.log(numbers); // [ 10, 20, 30, 40 ]
 
 #### &#8594; unshift()
 
-```
+```javascript
 let numbers = [10, 20, 30];
 
 const length = numbers.unshift(0);
@@ -115,7 +115,7 @@ console.log(numbers); // [ 0, 10, 20, 30 ]
 
 #### &#8594; pop()
 
-```
+```javascript
 let numbers = [10, 20, 30];
 
 const item = numbers.pop();
@@ -126,7 +126,7 @@ console.log(numbers); // [ 10, 20 ]
 
 #### &#8594; shift()
 
-```
+```javascript
 let numbers = [10, 20, 30];
 
 const item = numbers.shift();
@@ -137,8 +137,8 @@ console.log(numbers); // [ 20, 30 ]
 
 #### &#8594; splice()
 
-```
-DELETE
+```javascript
+DELETE;
 let scores = [1, 2, 3, 4, 5];
 
 let deletedScores = scores.splice(0, 3);
@@ -146,19 +146,17 @@ let deletedScores = scores.splice(0, 3);
 console.log(scores); //  [4, 5]
 console.log(deletedScores); // [1, 2, 3]
 
+INSERT;
+let colors = ["red", "green", "blue"];
 
-INSERT
-let colors = ['red', 'green', 'blue'];
-
-colors.splice(2, 0, 'purple');
+colors.splice(2, 0, "purple");
 
 console.log(colors); // ["red", "green", "purple", "blue"]
 
+UPDATE;
+let languages = ["C", "C++", "Java", "JavaScript"];
 
-UPDATE
-let languages = ['C', 'C++', 'Java', 'JavaScript'];
-
-languages.splice(1, 1, 'Python');
+languages.splice(1, 1, "Python");
 
 console.log(languages);
 // ["C", "Python", "Java", "JavaScript"]
@@ -166,10 +164,10 @@ console.log(languages);
 
 #### &#8594; slice()
 
-```
-let colors = ['red','green','blue','yellow','purple'];
+```javascript
+let colors = ["red", "green", "blue", "yellow", "purple"];
 
-let rgb = colors.slice(0,3);
+let rgb = colors.slice(0, 3);
 
 console.log(rgb); // ["red", "green", "blue"]
 ```
@@ -178,7 +176,7 @@ console.log(rgb); // ["red", "green", "blue"]
 
 #### &#8594; indexOf()
 
-```
+```javascript
 let scores = [10, 20, 30, 10, 40, 20];
 
 console.log(scores.indexOf(10)); // 0
@@ -189,38 +187,42 @@ console.log(scores.indexOf(20)); // 1
 
 #### &#8594; includes()
 
-```
-let numbers = [1,2,3];
+```javascript
+let numbers = [1, 2, 3];
 
 numbers.includes(2); // true
 numbers.includes(4); // false
-numbers.includes(1,1); // false
+numbers.includes(1, 1); // false
 ```
 
 #### &#8594; find()
 
-```
-let customers = [{
-    name: 'ABC Inc',
-    credit: 100
-}, {
-    name: 'ACME Corp',
-    credit: 200
-}, {
-    name: 'IoT AG',
-    credit: 300
-}];
+```javascript
+let customers = [
+  {
+    name: "ABC Inc",
+    credit: 100,
+  },
+  {
+    name: "ACME Corp",
+    credit: 200,
+  },
+  {
+    name: "IoT AG",
+    credit: 300,
+  },
+];
 
-console.log(customers.find(c => c.credit > 100));
+console.log(customers.find((c) => c.credit > 100));
 //{ name: 'ACME Corp', credit: 200 }
 ```
 
 #### &#8594; findIndex()
 
-```
+```javascript
 let ranks = [1, 5, 7, 8, 10, 7];
 
-let index = ranks.findIndex(rank => rank === 7);
+let index = ranks.findIndex((rank) => rank === 7);
 
 console.log(index); // 2
 ```
@@ -229,14 +231,14 @@ console.log(index); // 2
 
 #### &#8594; map()
 
-```
-let circles = [ 10, 30, 50 ];
+```javascript
+let circles = [10, 30, 50];
 
 let areas = []; // to store areas of circles
 let area = 0;
 for (let i = 0; i < circles.length; i++) {
-    area = Math.floor(Math.PI * circles[i] * circles[i]);
-    areas.push(area);
+  area = Math.floor(Math.PI * circles[i] * circles[i]);
+  areas.push(area);
 }
 
 console.log(areas); // [314, 2827, 7853]
@@ -244,20 +246,20 @@ console.log(areas); // [314, 2827, 7853]
 
 #### &#8594; filter()
 
-```
+```javascript
 let cities = [
-    {name: 'Los Angeles', population: 3792621},
-    {name: 'New York', population: 8175133},
-    {name: 'Chicago', population: 2695598},
-    {name: 'Houston', population: 2099451},
-    {name: 'Philadelphia', population: 1526006}
+  { name: "Los Angeles", population: 3792621 },
+  { name: "New York", population: 8175133 },
+  { name: "Chicago", population: 2695598 },
+  { name: "Houston", population: 2099451 },
+  { name: "Philadelphia", population: 1526006 },
 ];
 
 let bigCities = [];
 for (let i = 0; i < cities.length; i++) {
-    if (cities[i].population > 3000000) {
-        bigCities.push(cities[i]);
-    }
+  if (cities[i].population > 3000000) {
+    bigCities.push(cities[i]);
+  }
 }
 console.log(bigCities);
 /* [
@@ -268,12 +270,12 @@ console.log(bigCities);
 
 #### &#8594; reduce()
 
-```
+```javascript
 let numbers = [1, 2, 3];
 
 let sum = 0;
 for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
+  sum += numbers[i];
 }
 
 console.log(sum); // 6
@@ -281,31 +283,31 @@ console.log(sum); // 6
 
 #### &#8594; every()
 
-```
+```javascript
 let numbers = [1, 3, 5];
 
 let result = true;
 for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] <= 0) {
-        result = false;
-        break;
-    }
+  if (numbers[i] <= 0) {
+    result = false;
+    break;
+  }
 }
 console.log(result); // true
 ```
 
 #### &#8594; some()
 
-```
-let marks = [ 4, 5, 7, 9, 10, 3 ];
+```javascript
+let marks = [4, 5, 7, 9, 10, 3];
 
 let lessThanFive = false;
 
 for (let index = 0; index < marks.length; index++) {
-    if (marks[index] < 5) {
-        lessThanFive = true;
-        break;
-    }
+  if (marks[index] < 5) {
+    lessThanFive = true;
+    break;
+  }
 }
 
 console.log(lessThanFive); // true
@@ -313,8 +315,8 @@ console.log(lessThanFive); // true
 
 #### &#8594; sort()
 
-```
-let numbers = [ 11, 2, 34, 53, 73, 33, 42, 1 ]
+```javascript
+let numbers = [11, 2, 34, 53, 73, 33, 42, 1];
 
 let sorted = numbers.sort((a, b) => a - b);
 let reversSorted = numbers.sort((a, b) => b - a);
@@ -325,10 +327,10 @@ console.log(reversSorted); // [73, 53, 42, 34, 33, 11, 2, 1]
 
 #### &#8594; forEach()
 
-```
-let ranks = ['A', 'B', 'C'];
+```javascript
+let ranks = ["A", "B", "C"];
 for (let i = 0; i < ranks.length; i++) {
-    console.log(ranks[i]);
+  console.log(ranks[i]);
 }
 
 //A
@@ -340,9 +342,9 @@ for (let i = 0; i < ranks.length; i++) {
 
 #### &#8594; concat()
 
-```
-let odds = [1,3,5];
-let evens = [2,4,6];
+```javascript
+let odds = [1, 3, 5];
+let evens = [2, 4, 6];
 
 let combined = odds.concat(evens);
 
@@ -353,8 +355,8 @@ console.log(combined); // [ 1, 3, 5, 2, 4, 6 ]
 
 #### &#8594; of()
 
-```
-let chars = Array.of('A', 'B', 'C');
+```javascript
+let chars = Array.of("A", "B", "C");
 
 console.log(chars.length); // 3
 console.log(chars); // ['A','B','C']
@@ -362,20 +364,19 @@ console.log(chars); // ['A','B','C']
 
 #### &#8594; from()
 
-```
-console.log(Array.from('foo'));
+```javascript
+console.log(Array.from("foo"));
 // Expected output: Array ["f", "o", "o"]
 
 console.log(Array.from([1, 2, 3], (x) => x + x));
 // Expected output: Array [2, 4, 6]
-
 ```
 
 ### Section 7 &#8594; Flattening arrays
 
 #### &#8594; flat()
 
-```
+```javascript
 const numbers = [1, 2, [3, 4, 5]];
 const flatNumbers = numbers.flat();
 
@@ -384,10 +385,10 @@ console.log(flatNumbers); // [1, 2, 3, 4, 5]
 
 #### &#8594; flatMap()
 
-```
+```javascript
 var arr = [1, 2, 3, 4];
 
-arr.flatMap(x => [x, x * 2]);
+arr.flatMap((x) => [x, x * 2]);
 // is equivalent to
 
 arr.reduce((acc, x) => acc.concat([x, x * 2]), []);
@@ -398,9 +399,9 @@ arr.reduce((acc, x) => acc.concat([x, x * 2]), []);
 
 #### &#8594; flat()
 
-```
-const cssClasses = ['btn', 'btn-primary', 'btn-active'];
-const btnClass = cssClasses.join(' ');
+```javascript
+const cssClasses = ["btn", "btn-primary", "btn-active"];
+const btnClass = cssClasses.join(" ");
 
 console.log(btnClass); // "btn btn-primary btn-active"
 ```
@@ -409,9 +410,9 @@ console.log(btnClass); // "btn btn-primary btn-active"
 
 #### &#8594; Destructuring
 
-```
+```javascript
 function getScores() {
-   return [70, 80, 90];
+  return [70, 80, 90];
 }
 
 let [x, y, z] = getScores();
@@ -423,9 +424,9 @@ console.log(z); // 90
 
 #### &#8594; Spread Operator
 
-```
-const odd = [1,3,5];
-const combined = [2,4,6, ...odd];
+```javascript
+const odd = [1, 3, 5];
+const combined = [2, 4, 6, ...odd];
 
 console.log(combined); // [ 2, 4, 6, 1, 3, 5 ]
 ```
@@ -434,12 +435,14 @@ console.log(combined); // [ 2, 4, 6, 1, 3, 5 ]
 
 #### &#8594; at()
 
-```
+```javascript
 const array1 = [5, 12, 8, 130, 44];
 
 let index = 2;
 
-console.log(`Using an index of ${index} the item returned is ${array1.at(index)}`);
+console.log(
+  `Using an index of ${index} the item returned is ${array1.at(index)}`
+);
 // expected output: "Using an index of 2 the item returned is 8"
 ```
 
@@ -447,7 +450,7 @@ console.log(`Using an index of ${index} the item returned is ${array1.at(index)}
 
 #### &#8594; Multidimensional Array
 
-```
+```javascript
 let activities = [
     ['Work', 9],
     ['Eat', 1],
