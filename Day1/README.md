@@ -472,19 +472,20 @@ console.log(activities);
 
 ## 👩‍💻 FizzBuzz
 
-```
-Array(100).fill(0).forEach((x,index)=>{
-    if(index%5===0 && index%3===0){
-        console.log("FizzBuzz");
+```javascript
+Array(100)
+  .fill(0)
+  .forEach((x, index) => {
+    if (index % 5 === 0 && index % 3 === 0) {
+      console.log("FizzBuzz");
+    } else if (index % 3 === 0) {
+      console.log("Fizz");
+    } else if (index % 5 === 0) {
+      console.log("Buzz");
+    } else {
+      console.log(index);
     }
-    else if(index%3===0){
-        console.log("Fizz");
-    }else if(index%5===0){
-        console.log("Buzz");
-    }else{
-        console.log(index)
-    }
-})
+  });
 ```
 
 **_NOTE :_** _If we check 5 before 3 in the if else block, it will cause more cost._
