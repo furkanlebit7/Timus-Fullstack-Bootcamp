@@ -430,6 +430,29 @@ const combined = [2, 4, 6, ...odd];
 
 console.log(combined); // [ 2, 4, 6, 1, 3, 5 ]
 ```
+#### &#8594; Rest parameters
+```javascript
+function sum(...theArgs) {
+  let total = 0;
+  for (const arg of theArgs) {
+    total += arg;
+  }
+  return total;
+}
+console.log(sum(1, 2, 3));
+// Expected output: 6
+
+console.log(sum(1, 2, 3, 4));
+// Expected output: 10
+```
+[Differences about rest parameter and spread operator](https://medium.com/@yetkinkrsngr/nedir-ulan-bu-js-seri-rest-parametresi-ve-spread-operator%C3%BC-e30ed7164a4)
+
+```javascript
+const odd = [1, 3, 5];
+const combined = [2, 4, 6, ...odd];
+
+console.log(combined); // [ 2, 4, 6, 1, 3, 5 ]
+```
 
 ### Section 10 &#8594; Accesing elements
 
