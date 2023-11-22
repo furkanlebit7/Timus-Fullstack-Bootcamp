@@ -1,1 +1,1 @@
-//TODO: employee için controller yaz
+exports.person = (req, res) => {};
