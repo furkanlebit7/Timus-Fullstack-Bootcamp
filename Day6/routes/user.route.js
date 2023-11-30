@@ -9,4 +9,5 @@ router.route("/:id").get(controller.userController.getUserById);
 router.route("/").post(controller.userController.insertUser);
 router.route("/:id").put(controller.userController.updateUser);
 router.route("/:id").delete(controller.userController.deleteUser);
+
 module.exports = router;

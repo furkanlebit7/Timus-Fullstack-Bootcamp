@@ -57,7 +57,7 @@ const updateUser = async (username, email, userID) => {
   }
 };
 
-// Update User Service
+// Delete User Service
 const deleteUser = async (userID) => {
   try {
     const result = await pool.query(

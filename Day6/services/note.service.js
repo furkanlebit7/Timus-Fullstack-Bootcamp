@@ -43,4 +43,52 @@ const insertNote = async (userId, title, content) => {
   }
 };
 
-module.exports = { getNotes, getNoteById, insertNote };
+// Update Note Service
+const updateNote = async (userid, title, content, noteID) => {
+  try {
+    const result = await pool.query(
+      "UPDATE notes SET userid = $1, title = $2, content = $3 WHERE id = $4 RETURNING *",
+      [userid, title, content, noteID]
+    );
+    return result.rows[0];
+  } catch (err) {
+    console.error("Error updating note", err);
+    throw new Error("Error updating note");
+  }
+};
+
+// Delete Note Service
+const deleteNote = async (noteID) => {
+  try {
+    const result = await pool.query(
+      "DELETE FROM notes WHERE id = $1 RETURNING *",
+      [noteID]
+    );
+    return result.rows[0];
+  } catch (err) {
+    console.error("Error removing note", err);
+    throw new Error("Error removing note");
+  }
+};
+
+// User Existence Check Service
+const isNoteExist = async (noteID) => {
+  try {
+    const result = await pool.query("SELECT * FROM notes WHERE id = $1", [
+      noteID,
+    ]);
+    return result.rows.length > 0; // Returns true if user exists, false otherwise
+  } catch (err) {
+    console.error("Error checking note existence", err);
+    throw new Error("Error checking note existence");
+  }
+};
+
+module.exports = {
+  getNotes,
+  getNoteById,
+  insertNote,
+  updateNote,
+  deleteNote,
+  isNoteExist,
+};
