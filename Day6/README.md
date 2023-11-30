@@ -1,7 +1,8 @@
-# 📬 Timus Fullstack Bootcamp Day-6
+# 📽️ Timus Fullstack Bootcamp Day-6
 
 ### Users and Notes using Express and pg
 
+#### Tasks
 :heavy_check_mark: Add MVC for Notes<br />
 :heavy_check_mark: Create a relation between users and notes<br />
 :heavy_check_mark: Make project MVC Format<br />
