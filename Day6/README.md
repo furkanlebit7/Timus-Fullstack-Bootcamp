@@ -10,19 +10,19 @@
 :heavy_check_mark: getUserNotes method will be added<br />
 :heavy_check_mark: If the user is deleted, its notes will also be deleted. <br />
 
-## :fire: Technologies and Libraries
+## 🔥Technologies and Libraries
 
-:point_right: Nodejs <br />
-:point_right: Express <br />
-:point_right: Fs <br />
-:point_right: Nodemon <br />
-:point_right: Body-Parser <br />
-:point_right: pg <br />
-:point_right: pg-promise <br />
-:point_right: helmet <br />
-:point_right: morgan <br />
-:point_right: dotenv <br />
-:point_right: path <br />
+🟢 Nodejs <br />
+🟢 Express <br />
+🟢 Fs <br />
+🟢 Nodemon <br />
+🟢 Body-Parser <br />
+🟢 pg <br />
+🟢 pg-promise <br />
+🟢 helmet <br />
+🟢 morgan <br />
+🟢 dotenv <br />
+🟢 path <br />
 
 
 
