@@ -84,6 +84,29 @@ const isUserExists = async (userId) => {
   }
 };
 
+// Get User Notes Service
+const getUserNotes = async (userID) => {
+  try {
+    //fetch user
+    const [userQuery, notesQuery, countNotes] = await Promise.all([
+      pool.query("SELECT * FROM users WHERE id = $1", [userID]),
+      pool.query("SELECT * FROM notes WHERE userid = $1", [userID]),
+      pool.query(
+        "SELECT COUNT(*) as total_notes FROM notes WHERE userid = $1",
+        [userID]
+      ),
+    ]);
+    const total_notes = countNotes.rows[0].total_notes;
+    const user = userQuery.rows[0];
+    const notes = notesQuery.rows;
+
+    return { user, notes, total_notes };
+  } catch (err) {
+    console.error("Error fetching user notes", err);
+    throw new Error("Error fetching user notes");
+  }
+};
+
 module.exports = {
   getUsers,
   getUserById,
@@ -91,4 +114,5 @@ module.exports = {
   updateUser,
   deleteUser,
   isUserExists,
+  getUserNotes,
 };

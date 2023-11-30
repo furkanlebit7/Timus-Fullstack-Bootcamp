@@ -18,6 +18,7 @@ const getNotes = async (req, res) => {
 
 // Get Note By Id Controller
 const getNoteById = async (req, res) => {
+  console.log("qwfqwf");
   try {
     const noteID = req.params.id;
     const note = await noteService.getNoteById(noteID);
@@ -116,4 +117,27 @@ const deleteNote = async (req, res) => {
   }
 };
 
-module.exports = { getNotes, getNoteById, insertNote, updateNote, deleteNote };
+// Get Notes by UserID Controller
+const getNotesByUserId = async (req, res) => {
+  try {
+    const userID = req.params.id;
+    const notes = await noteService.getNotesByUserId(userID);
+    res.status(200).json({
+      data: notes,
+      message: `Notes by UserID: ${userID} successfully fetched`,
+    });
+  } catch (err) {
+    res
+      .status(500)
+      .json({ error: "Failed to fetch notes. Please try again later." });
+  }
+};
+
+module.exports = {
+  getNotes,
+  getNoteById,
+  insertNote,
+  updateNote,
+  deleteNote,
+  getNotesByUserId,
+};

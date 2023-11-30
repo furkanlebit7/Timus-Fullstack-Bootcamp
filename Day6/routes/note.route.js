@@ -9,5 +9,6 @@ router.route("/:id").get(controller.notesController.getNoteById);
 router.route("/").post(controller.notesController.insertNote);
 router.route("/:id").put(controller.notesController.updateNote);
 router.route("/:id").delete(controller.notesController.deleteNote);
+router.route("/user/:id").get(controller.notesController.getNotesByUserId);
 
 module.exports = router;

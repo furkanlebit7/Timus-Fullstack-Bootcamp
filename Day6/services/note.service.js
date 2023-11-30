@@ -84,6 +84,34 @@ const isNoteExist = async (noteID) => {
   }
 };
 
+// Get Notes by UserID Service
+const getNotesByUserId = async (userID) => {
+  try {
+    const result = await pool.query("SELECT * FROM notes WHERE userid = $1", [
+      userID,
+    ]);
+
+    return result.rows;
+  } catch (err) {
+    console.error("Error fetching user notes", err);
+    throw new Error("Error fetching user notes");
+  }
+};
+
+// Delete All Notes by UserID Service
+const deleteAllNotesByUserId = async (userID) => {
+  try {
+    const result = await pool.query(
+      "DELETE FROM notes WHERE userid = $1 RETURNING *",
+      [userID]
+    );
+    return result.rows[0];
+  } catch (err) {
+    console.error("Error removing user notes", err);
+    throw new Error("Error removing user notes");
+  }
+};
+
 module.exports = {
   getNotes,
   getNoteById,
@@ -91,4 +119,6 @@ module.exports = {
   updateNote,
   deleteNote,
   isNoteExist,
+  getNotesByUserId,
+  deleteAllNotesByUserId,
 };

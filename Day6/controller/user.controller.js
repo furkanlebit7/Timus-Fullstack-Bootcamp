@@ -1,4 +1,5 @@
 const { userService } = require("../services");
+const { noteService } = require("../services");
 
 // Get Users Controller
 const getUsers = async (req, res) => {
@@ -9,6 +10,7 @@ const getUsers = async (req, res) => {
       message: "Users successfully fetched",
     });
   } catch (err) {
+    console.log(err);
     res
       .status(500)
       .json({ error: "Failed to fetch users. Please try again later." });
@@ -79,6 +81,15 @@ const deleteUser = async (req, res) => {
   try {
     const userID = req.params.id;
 
+    // Check if user exists
+    const doesUserExist = await userService.isUserExists(userID);
+    if (!doesUserExist) {
+      return res.status(404).json({ message: "User does not exist" });
+    }
+
+    // Delete all notes belong to user
+    await noteService.deleteAllNotesByUserId(userID);
+    // Delete user
     const removedUser = await userService.deleteUser(userID);
     res.status(200).send({
       data: removedUser,
@@ -91,10 +102,27 @@ const deleteUser = async (req, res) => {
   }
 };
 
+// Get User Notes Controller
+const getUserNotes = async (req, res) => {
+  try {
+    const userID = req.params.id;
+    const { user, notes, total_notes } = await userService.getUserNotes(userID);
+    res.status(200).json({
+      data: { user, notes, total_notes },
+      message: `Notes for UserID: ${userID} successfully fetched`,
+    });
+  } catch (err) {
+    res
+      .status(500)
+      .json({ error: "Failed to fetch notes. Please try again later." });
+  }
+};
+
 module.exports = {
   getUsers,
   getUserById,
   insertUser,
   updateUser,
   deleteUser,
+  getUserNotes,
 };
