@@ -93,8 +93,8 @@
 | Body          | Type       | Description                                    |
 | :-------------- | :-------- | :------------------------------------------ |
 | `userid`         | `number`  | **Required**. Enter userid   |
-| `username`         | `string`  | **Required**. Enter username   |
-| `email`     | `string`  | **Required**. Enter email          |
+| `title`         | `string`  | **Required**. Enter title   |
+| `content`     | `string`  | **Required**. Enter content          |
 
 #### DELETE Note By ID
 
@@ -110,8 +110,8 @@
 | Body          | Type       | Description                                    |
 | :-------------- | :-------- | :------------------------------------------ |
 | `userid`         | `number`  | **Required**. Enter userid   |
-| `username`         | `string`  | **Required**. Enter username   |
-| `email`     | `string`  | **Required**. Enter email          |
+| `title`         | `string`  | **Required**. Enter title   |
+| `content`     | `string`  | **Required**. Enter content          |
 
 #### GET Notes by UserID
 
